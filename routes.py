@@ -15,15 +15,17 @@ def test():
 
 @main.route('/process-pdf', methods=['POST', 'GET'])
 def process_pdf():
+
+    print('starting route')
     # Handle GET: Return instructions
     if request.method == 'GET':
-        print( "uhh this aint it chief")
+        print( "wrong request method")
         return "Please send a POST request with a PDF file (via form-data field named 'file') to process it."
     
     if request.files:
         print(request.files)
     else:
-        print('no files ya bitch')
+        print('no files')
 
     # Handle POST: Process the uploaded PDF
     if 'file' not in request.files:
